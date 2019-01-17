@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd 
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd 
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="employee-api-test-suite.xml" />
+	<munit:test name="employee-api-test-suite-get:\employee:employee-api-configTest" description="Test" doc:id="4276f571-56c8-4cd8-8912-827dd4b46c96" >
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\employee:employee-api-config" doc:id="e06e5319-5341-4928-b1a2-f401d7e0876d" name="get:\employee:employee-api-config"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="c823fade-ceb3-4e52-94cd-a6ab1b4feac2" expression="#[payload]" is="#[MunitTools::notNullValue()]" message="Payload String is Null"></munit-tools:assert-that>
+
+		</munit:validation>
+		
+	</munit:test>
+
+</mule>

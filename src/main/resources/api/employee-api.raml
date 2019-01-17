@@ -1,0 +1,41 @@
+#%RAML 1.0 
+
+version: v1
+title: Employee API
+types:
+  Employee: !include datatypes/employee.raml
+
+/employee:
+  get:
+    description: Retrieves accounts based on the given query parameters.
+    queryParameters:
+      name:
+        description: The system will look for names that contain the given value in the name parameter.
+        required: true
+        type: string
+     
+    responses:
+      400:
+        body:
+          application/json:
+            example: {
+              "message": "Error retrieving data from the Employee info."
+            }
+      200:
+        description: Returns an array of Employee objects in JSON
+        body:
+          application/json:
+            type: Employee
+            example: !include examples/EmployeeExample.raml
+      500:
+        body:
+          application/json:
+            example: {
+              "message": "Error retrieving data from the Employee info."
+            }
+      404:
+        body:
+          application/json:
+            example: {
+              "message": "Error retrieving data from the Employee info."
+            }

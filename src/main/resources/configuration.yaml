@@ -1,0 +1,13 @@
+http:
+  host: 0.0.0.0
+  port: 8089
+  
+properties:
+  name: "employee_api"
+  version: "1.0.0"
+  assetId: "12345"
+
+anypoint:
+  platform:
+   client_secret: "Test"
+   client_id: "Test"
